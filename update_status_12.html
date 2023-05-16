@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: {
+            center: true,
+            padding: {
+              DEFAULT: "13px",
+              sm: "15px",
+              lg: "15px",
+              xl: "15px",
+            },
+            screens: {
+              sm: "600px",
+              md: "768px",
+              lg: "1024px",
+              xl: "1150px",
+              "2xl": "1150px",
+            },
+          },
+          extend: {
+            fontFamily: {
+              inter: ['"Inter", sans-serif'],
+            },
+            colors: {
+              textColor: "#7F8FA4",
+              themeColor: "#5B4DF2",
+              themeColor2: "#00DE56",
+              borderColor: "#E1E8EE",
+              dark: "#334150",
+              light: "#F5F6F7",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer base {
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap");
+        body {
+          font-family: "Lato", sans-serif;
+        }
+      }
+
+      #Axis:checked + label .border,
+      #ICICI:checked + label .border,
+      #Citibank:checked + label .border,
+      #Kotak:checked + label .border,
+      #SBI:checked + label .border {
+        background-color: #6161ff;
+      }
+
+      .offcanvas-area,
+      .offcanvas-overlay {
+        transition: all 0.3s ease-in-out;
+      }
+      .offcanvas-overlay.active,
+      .offcanvas-area.active {
+        right: 0;
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+
+    <title>Broker Network</title>
+  </head>
+
+  <body class="bg-light">
+    <!-- ----===========================================update_status_12 ==========================================---  -->
+    <section class="fixed inset-0 z-20">
+      <!-- ---overlay---  -->
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-[#1A1E23] bg-opacity-70 z-20"
+      ></div>
+
+      <!-- ---- sidebar ---  -->
+      <div
+        class="overflow-y-auto max-w-[476px] w-full h-full bg-white absolute top-0 right-0 z-20 rounded-tl-[5px] rounded-bl-[5px]"
+      >
+        <div class="flex flex-col h-full">
+          <div
+            class="flex items-center justify-between h-[55px] px-4 border-b-[1px] py-4"
+          >
+            <h3 class="text-[16px] font-Lato font-semibold text-[#334150]">
+              You’re changing Arpit Gupta’s status
+            </h3>
+            <div class="">
+              <button class="cursor-pointer">
+                <i
+                  class="fa fa-times font-[100] text-[#7F8FA4]"
+                  aria-hidden="true"
+                ></i>
+              </button>
+            </div>
+          </div>
+          <div class="pt-8 px-14 flex flex-col h-full justify-between">
+            <div class="flex flex-col space-y-3">
+              <h3 class="text-[16px] font-Lato font-semibold text-[#334150]">
+                Select status
+              </h3>
+              <select
+                id="countries"
+                class="bg-[#fff] border border-[#D9E7F7] text-[#334150] text-[14px] rounded-[5px] w-[360px] focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option selected>Disbursed with cheque/ RTGS</option>
+                <option value="one">document one</option>
+                <option value="two">document two</option>
+                <option value="three">document three</option>
+                <option value="four">document four</option>
+              </select>
+
+              <!-- ----select-bank---  -->
+
+              <div class="">
+                <h3
+                  class="text-[16px] font-Lato font-semibold text-[#334150] mb-2"
+                >
+                  Select banks
+                </h3>
+                <select
+                  id="countries"
+                  class="bg-[#fff] border border-[#D9E7F7] text-[#334150] text-[14px] rounded-[5px] w-[360px] focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                >
+                  <option selected>Kotak Mahindra Bank</option>
+                  <option value="one">document one</option>
+                  <option value="two">document two</option>
+                  <option value="three">document three</option>
+                  <option value="four">document four</option>
+                </select>
+              </div>
+
+              <div class="">
+                <div class="flex items-center justify-between">
+                  <h3
+                    class="text-[16px] font-Lato font-semibold text-[#334150] mb-2"
+                  >
+                    Disbursed amount
+                  </h3>
+                  <span
+                    class="text-[14px] font-Lato font-semibold text-[#E02020] mb-2"
+                    >Total applied for: 1.5 Cr.</span
+                  >
+                </div>
+
+                <input
+                  type="text"
+                  class="border bg-[#fff] border border-[#D9E7F7] text-[#334150] text-[14px] rounded-[5px] w-[360px] p-2"
+                  value="150000"
+                />
+              </div>
+            </div>
+            <textarea
+              class="placeholder:text-[14px] placeholder:italic placeholder:font-[400] bg-[#fff] border border-[#D9E7F7] text-[#334150] text-[14px] rounded-[5px] w-[360px] block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              name=""
+              id=""
+              cols="30"
+              rows="5"
+              placeholder="Add a note here"
+            ></textarea>
+            <div class="text-right pb-7 mt-6">
+              <button
+                class="text-[#334150] font-medium text-[1rem] py-1 px-6 rounded-[5px]"
+              >
+                Cancel
+              </button>
+              <button
+                class="text-[#FFFFFF] text-[14px] bg-[#F33A3A] py-[7px] px-6 rounded-[5px]"
+              >
+                Change status
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--------- Offcanvas area start --------->
+    <div
+      class="offcanvas-area transition fixed top-0 right-[-100%] bg-[#5B4DF2] w-[300px] z-40 h-full shadow-md"
+    >
+      <div class="menu-close">
+        <i
+          class="far fa-times w-[30px] h-[30px] transition hover:bg-[#ffffff] hover:text-[#5B4DF2] flex justify-center items-center text-[16px] text-[#fff] absolute top-[18px] left-[18px] cursor-pointer border-[1px] p-1"
+        ></i>
+      </div>
+      <div class="offcanvas-menu">
+        <div class="main-menu">
+          <ul class="block mt-[110px]">
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-t-[1px] border-b-[1px] hover:bg-[#fff]"
+                >Owner’s supply</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Resale/Rental</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Add building</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Stories</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Home Loans</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Commercial</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Chat</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="offcanvasOverlay"
+      class="offcanvas-overlay fixed w-full h-full bg-[#000] right-[-100%] bg-opacity-70 z-30"
+    ></div>
+    <!--------- Offcanvas area end --------->
+    <!--======== Header Area Start =========-->
+    <header
+      class="header bg-themeColor w-full pl-4 md:pl-[50px] pr-6 relative flex items-center z-10"
+    >
+      <div class="header-logo max-w-[154px] flex-shrink-0 mr-3">
+        <a href=""><img src="assets/img/logos/logo.png" alt="" /></a>
+      </div>
+      <div class="header-main w-full flex items-center lg:justify-center">
+        <nav class="hidden lg:block header-nav">
+          <ul class="flex items-center justify-center space-x-1">
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Owner’s supply</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Resale/Rental</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Add building</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Stories</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-1 hover:after:opacity-100 after:transition-all"
+                >Home Loans</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Commercial</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Chat</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-2 px-2 leading-tight font-inter"
+                ><img src="assets/img/icons/dots.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="ml-auto lg:ml-0 header-profile flex items-center space-x-3 py-2.5 pl-8"
+        >
+          <a
+            href=""
+            class="inline-block md:hidden text-white text-sm transition relative inline-block py-2 leading-tight font-inter"
+            ><img src="assets/img/icons/dots.png" alt=""
+          /></a>
+
+          <div class="relative flex-shrink-0 ml-auto">
+            <img
+              src="assets/img/thumbs/profile-thumb.png"
+              class="sm:w-8 sm:h-8 h-9 w-9 lg:h-[38px] lg:w-[38px] rounded-full object-cover"
+              alt=""
+            />
+            <span
+              class="absolute border-2 border-themeColor rounded-full w-3 h-3 bottom-0.5 right-0 bg-themeColor2"
+            ></span>
+          </div>
+
+          <div
+            class="hidden md:block flex-col space-y-[6px] max-w-[158px] hidden lg:flex"
+          >
+            <h6 class="text-sm font-bold text-white leading-none">
+              Arun Pattnaik
+            </h6>
+            <span class="text-[13px] opacity-70 text-white block leading-none"
+              >Admin</span
+            >
+          </div>
+          <button class="flex-shrink-0 block lg:hidden" id="open_menu">
+            <i
+              class="fa fa-bars text-[22px] text-[#ffffff] font-[300]"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!--======== Header Area End =========-->
+
+    <!--======== Main Area Start =========-->
+    <main class="pt-5 lg:pt-8 pb-8">
+      <!--======== Content Area Start =========-->
+      <section class="content-area">
+        <div class="container">
+          <!-- ---responsive 1st---- -->
+          <section
+            class="flex items-center mb-4 md:mb-0 pb-4 border-b border-solid border-[#E1E8EE]"
+          >
+            <div class="flex items-center">
+              <div class="avater mr-2 shrink-0">
+                <img
+                  src="assets/img/thumbs/profile-thumb.png"
+                  class="w-[2.5rem] h-[2.5rem] rounded-full"
+                  alt=""
+                />
+              </div>
+
+              <div class="flex space-x-2 items-center">
+                <p
+                  class="font-Lato font-bold text-[#334150] text-[0.8rem] md:text-[1.3125rem] shrink-0"
+                >
+                  Arpit Gupta
+                </p>
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/phone.svg" alt="" />
+                </button>
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/message.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="ml-2 shrink-0">
+                <button
+                  class="bg-[#E1E8EE] h-[31px] px-2 md:px-3 flex items-center justify-center text-[14px] font-medium rounded-[4px]"
+                >
+                  <i class="fas fa-edit mr-0 md:mr-1"></i>
+                  <span class="hidden md:inline-block">Add a note</span>
+                </button>
+              </div>
+            </div>
+            <div class="ml-auto md:ml-[142px] flex space-x-2">
+              <button
+                class="bg-[#6161FF] h-[24px] px-3 flex items-center justify-center text-[12px] font-Lato text-[#FFFFFF] rounded-[5px] shrink-0"
+              >
+                Schedule a call
+              </button>
+
+              <div class="group relative flex">
+                <button
+                  class="flex-shrink-0 group bg-[#E7E9FF] h-[24px] px-2 md:px-3 flex items-center justify-center text-[12px] font-Lato text-[#334150] rounded-[5px] flex shrink-0"
+                >
+                  <img
+                    src="assets/img//icons/Icons  wait.svg"
+                    class="mr-0 md:mr-1"
+                    alt=""
+                  />
+
+                  <span class="hidden md:inline-block"
+                    >Documents collection</span
+                  >
+                </button>
+
+                <!-- ----- Documents collection --- hover content---  -->
+                <div
+                  class="absolute top-[135%] right-0 hidden group-hover:flex group-hover:flex-col flex-col z-20 w-[200px] bg-[#FFFFFF] shadow-md p-4 rounded-[3px]"
+                >
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Approved <span>(4)</span>
+                  </p>
+
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Documents collected <span>(7)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Verification <span>(2)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Sanction letter <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Disbursements <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Approved <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Documents collected <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Verification <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Sanction lette <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Disbursements <span>(4)</span>
+                  </p>
+                  <div
+                    class="absolute top-[-15px] right-[5%] w-11 overflow-hidden inline-block"
+                  >
+                    <div
+                      class="h-4 bg-white shadow-md z-10 relative rotate-45 transform origin-bottom-left"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ----- responsive 2nd -----  -->
+          <section
+            class="flex items-center justify-between pb-0 mb-4 border-b border-solid border-[#E1E8EE] md:flex-row flex-col"
+          >
+            <!-- list div  -->
+            <div class="md:order-1 order-2">
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[transparent] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Overview</a
+              >
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[transparent] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Profile</a
+              >
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[#6161FF] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Timeline</a
+              >
+            </div>
+
+            <!-- icons div  -->
+            <div class="flex items-center md:order-2 md:mb-0 mb-4">
+              <span class="text-[13px] not-italic font-medium text-[#747681]"
+                >Broker</span
+              >
+              <div class="flex items-center gap-2 pl-5 pr-[17px]">
+                <img
+                  src="assets/img/thumbs/profile-thumb.png"
+                  alt=""
+                  class="w-[1.5rem] h-[1.5rem] rounded-full"
+                />
+                <span class="text-[13px] not-italic font-bold text-dark"
+                  >Arun Pattnaik</span
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/phone.svg" alt="" />
+                </button>
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/message.svg" alt="" />
+                </button>
+                <button class="cursor-pointer">
+                  <img src="assets/img/icons/dot-light.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- --white conteant--  -->
+          <section class="bg-[#fff] py-4 px-8 rounded-[5px] mt-4">
+            <!-- ----Activity timeline---responsive  -->
+
+            <div class="mb-[54px]">
+              <div
+                class="flex space-y-2 lg:space-y-0 flex-wrap items-center mb-4 justify-between"
+              >
+                <h3
+                  class="font-inter text-[1rem] text-[#666A7B] uppercase font-semibold mr-5"
+                >
+                  Activity timeline
+                </h3>
+
+                <div class="flex justify-center flex-wrap space-x-2">
+                  <div
+                    class="mt-2 md:mt-0 mx-auto sm:mx-0 w-[15.625rem] h-[36px] relative border-[1px] border-[#E1E8EE] rounded-[5px] flex"
+                  >
+                    <i
+                      class="fa fa-search text-[#7F8FA4] px-4 flex justify-center items-center"
+                      aria-hidden="true"
+                    ></i>
+                    <input type="text" placeholder="Search…" class="w-full" />
+                  </div>
+
+                  <div
+                    class="flex mt-2 md:mt-0 space-x-2 items-center bg-[#fff] border border-[#D9E7F7] text-[#334150] text-[14px] rounded-[5px] w-[200px] h-[36px] px-2.5 focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600"
+                  >
+                    <div class="">
+                      <img src="assets/img/icons/open-svg.svg" alt="" />
+                    </div>
+                    <select
+                      id="countries"
+                      class="appearance-none bg-no-repeat bg-[calc(100%-1px)] bg-[url('assets/img/icons/up-down-arrow.svg')] dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full h-full bg-[#FFFFFF]"
+                    >
+                      <option selected>All events</option>
+                      <option value="one">document one</option>
+                      <option value="two">document two</option>
+                      <option value="three">document three</option>
+                      <option value="four">document four</option>
+                    </select>
+                  </div>
+
+                  <div
+                    class="flex mt-2 md:mt-0 space-x-2 items-center bg-[#fff] border border-[#D9E7F7] text-[#334150] text-[14px] rounded-[5px] w-[200px] h-[36px] px-2.5 focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600"
+                  >
+                    <div class="">
+                      <i class="fas fa-clock text-[#7F8FA4]"></i>
+                    </div>
+                    <select
+                      id="countries"
+                      class="appearance-none bg-no-repeat bg-[calc(100%-1px)] bg-[url('assets/img/icons/up-down-arrow.svg')] dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full h-full bg-[#FFFFFF]"
+                    >
+                      <option selected>All time</option>
+                      <option value="one">document one</option>
+                      <option value="two">document two</option>
+                      <option value="three">document three</option>
+                      <option value="four">document four</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ------ Disbursement process ----  -->
+
+              <div
+                class="flex justify-between h-[67px] items-center border-[1px] border-[#E1E8EE] rounded-[5px] px-[1rem] mb-4"
+              >
+                <h4
+                  class="font-inter text-[14px] text-[#181F2E] uppercase font-semibold"
+                >
+                  Disbursement process
+                </h4>
+
+                <div class="flex items-center space-x-2">
+                  <span
+                    class="bg-[#CBCBCB] font-inter font-semibold text-[10px] text-[#FFFFFF] flex justify-center items-center px-3 py-1 rounded-[5px]"
+                  >
+                    <span
+                      class="w-[12px] h-[12px] border-2 border-[#FFFFFF] rounded-full inline-block mr-1"
+                    ></span>
+                    Pending</span
+                  >
+
+                  <div class="">
+                    <button
+                      class="bg-[#F0F0F2] w-[35px] h-[35px] flex justify-center items-center rounded-[4px]"
+                    >
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ------Bank Process---  -->
+
+              <div class="">
+                <div
+                  class="border-[1px] border-[#E1E8EE] rounded-[5px] py-7 px-4"
+                >
+                  <div class="flex justify-between">
+                    <h3
+                      class="font-semibold font-inter text-[14px] uppercase text-[#AFB6C3]"
+                    >
+                      Bank Process
+                    </h3>
+
+                    <div class="flex space-x-2 items-center">
+                      <div class="">
+                        <p
+                          class="bg-[#89B5E0] flex px-[10px] py-[6px] rounded-[4px] space-x-1"
+                        >
+                          <img
+                            class="text-[#fff]"
+                            src="assets//img//icons/Icons  wait.svg"
+                            alt=""
+                          />
+                          <span
+                            class="font-inter font-semibold text-[10px] text-[#FFFFFF]"
+                            >In-progress</span
+                          >
+                        </p>
+                      </div>
+                      <div class="">
+                        <button
+                          class="bg-[#F0F0F2] w-[35px] h-[35px] flex justify-center items-center rounded-[4px]"
+                        >
+                          <i class="fa fa-angle-up" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex items-center mt-7 mb-7">
+                      <div
+                        class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                      >
+                        <!-- <i
+                          class="fa fa-comments text-[#979EAB]"
+                          aria-hidden="true"
+                        ></i> -->
+
+                        <i
+                          ><img src="assets/img/icons/messageBlack.svg" alt=""
+                        /></i>
+                      </div>
+
+                      <div class="ml-4">
+                        <span
+                          class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                          >9:25 PM</span
+                        >
+                      </div>
+
+                      <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                        <span class="font-semibold">Arun Pattnaik</span> sent a
+                        message.
+                      </div>
+                    </div>
+                    <div class="">
+                      <span
+                        class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                        >Notes</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- ------ join-timeline----  -->
+
+                  <div class="relative z-10">
+                    <span
+                      class="absolute z-[-10] top-0 left-[18px] inline-block h-full w-[2px] bg-[#EAECF3]"
+                    >
+                    </span>
+                    <div class="">
+                      <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                          <div
+                            class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                          >
+                            <!-- <i
+                              class="fa fa-trash text-[#979EAB]"
+                              aria-hidden="true"
+                            ></i> -->
+                            <i
+                              ><img src="assets/img/icons/Delete.svg" alt=""
+                            /></i>
+                          </div>
+
+                          <div class="ml-4">
+                            <span
+                              class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                              >11:00 AM</span
+                            >
+                          </div>
+
+                          <div
+                            class="font-inter font-[14px] text-[#181F2E] ml-5"
+                          >
+                            <span class="font-semibold">Arpit Gupta</span>
+                            deleted a document.
+                          </div>
+                        </div>
+                        <div class="">
+                          <span
+                            class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                            >Documents</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        class="ml-[8rem] max-w-[467px] mt-1 py-[12px] px-[20px] border-[1px] border-[#E1E8EE] rounded-[5px] flex items-center justify-between"
+                      >
+                        <div class="flex space-x-5">
+                          <img src="assets/img/icons/bank.svg" alt="" />
+                          <div class="">
+                            <p class="text-[#7F8FA4] text-[13px]">
+                              Bank Statements
+                            </p>
+                            <p class="text-[#334150] text-[14px]">345 KB</p>
+                          </div>
+                        </div>
+                        <div class="relative group">
+                          <button>
+                            <i class="fas fa-ellipsis-h text-[#7F8FA4]"></i>
+                          </button>
+
+                          <!-- ---hover-content--  -->
+                          <div
+                            class="absolute w-[8.5rem] top-[100%] left-0 bg-[#FFFFFF] border-[1px] border-[#D9E7F7] rounded-[3px] shadow-sm p-3 hidden group-hover:block"
+                          >
+                            <p class="flex space-x-2 mb-2">
+                              <img
+                                class="w-[16px]"
+                                src="assets/img/icons/open-icon.png"
+                                alt=""
+                              />
+                              <span class="text-[#AFB6C3] text-[14px]"
+                                >Open</span
+                              >
+                            </p>
+                            <p class="flex space-x-2 mb-2">
+                              <img
+                                class=""
+                                src="assets/img/icons/shear-svg.svg"
+                                alt=""
+                              />
+                              <span class="text-[#AFB6C3] text-[14px]">
+                                Share
+                              </span>
+                            </p>
+                            <p class="flex space-x-2">
+                              <img
+                                class="w-[16px]"
+                                src="assets/img/icons/download-svg.svg"
+                                alt=""
+                              />
+                              <span class="text-[#AFB6C3] text-[14px]"
+                                >Download</span
+                              >
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-comments text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+
+                          <i
+                            ><img
+                              src="assets/img/icons/messageBlack.svg"
+                              alt=""
+                          /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >13 July</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Arun Pattnaik</span> wrote
+                          a note in a document
+                          <span class="font-semibold">PAN Number.</span>
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >Notes</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-phone rotate-90 text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+                          <i
+                            ><img
+                              src="assets/img/icons/phone-timeline.svg"
+                              alt=""
+                          /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >11 July</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Hemant Chauhan</span> made
+                          a call for 7 minutes 35 seconds.
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >communication</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-phone rotate-90 text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+                          <i
+                            ><img src="assets/img/icons/statement.svg" alt=""
+                          /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >11 July</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Nisha Sitharaman</span>
+                          uploaded a document
+                          <span class="font-semibold">Bank statements</span>
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >Documents</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-phone rotate-90 text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+                          <i><img src="assets/img/icons/false.svg" alt="" /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >11 July</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Share certificates</span>
+                          received from
+                          <span class="font-semibold">ICICI bank</span> and
+                          <span class="font-semibold">ICICI bank</span>
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >process?</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ---- Sanction Process ----  -->
+
+              <div class="mt-4">
+                <div
+                  class="border-[1px] border-[#E1E8EE] rounded-[5px] py-7 px-4"
+                >
+                  <div class="flex justify-between">
+                    <h3
+                      class="font-semibold font-inter text-[14px] uppercase text-[#AFB6C3]"
+                    >
+                      Sanction Process
+                    </h3>
+
+                    <div class="flex space-x-2 items-center">
+                      <div class="">
+                        <p
+                          class="bg-[#89B5E0] flex px-[10px] py-[6px] rounded-[4px] space-x-1"
+                        >
+                          <img
+                            class="text-[#fff]"
+                            src="assets//img//icons/Icons  wait.svg"
+                            alt=""
+                          />
+                          <span
+                            class="font-inter font-semibold text-[10px] text-[#FFFFFF]"
+                            >In-progress</span
+                          >
+                        </p>
+                      </div>
+                      <div class="">
+                        <button
+                          class="bg-[#F0F0F2] w-[35px] h-[35px] flex justify-center items-center rounded-[4px]"
+                        >
+                          <i class="fa fa-angle-up" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ------ join-timeline----  -->
+
+                  <div class="relative z-10 mt-8">
+                    <span
+                      class="absolute z-[-10] top-0 left-[18px] inline-block h-full w-[2px] bg-[#EAECF3]"
+                    >
+                    </span>
+                    <div class="">
+                      <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                          <div
+                            class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                          >
+                            <!-- <i
+                              class="fa fa-trash text-[#979EAB]"
+                              aria-hidden="true"
+                            ></i> -->
+                            <i
+                              ><img
+                                src="assets/img/icons/messageBlack.svg"
+                                alt=""
+                            /></i>
+                          </div>
+
+                          <div class="ml-4">
+                            <span
+                              class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                              >9:25 PM</span
+                            >
+                          </div>
+
+                          <div
+                            class="font-inter font-[14px] text-[#181F2E] ml-5"
+                          >
+                            <span class="font-semibold">Arun Pattnaik</span>
+                            uploaded 3 documents.
+                          </div>
+                        </div>
+                        <div class="">
+                          <span
+                            class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                            >Documents</span
+                          >
+                        </div>
+                      </div>
+
+                      <div class="flex flex-col space-y-3">
+                        <div
+                          class="ml-[8rem] max-w-[467px] mt-1 py-[12px] px-[20px] border-[1px] border-[#E1E8EE] rounded-[5px] flex items-center justify-between"
+                        >
+                          <div class="flex space-x-5">
+                            <img src="assets/img/icons/Icon.svg" alt="" />
+                            <div class="">
+                              <p class="text-[#7F8FA4] text-[13px]">
+                                Phone bill
+                              </p>
+                              <p class="text-[#334150] text-[14px]">3.33 MB</p>
+                            </div>
+                          </div>
+                          <div class="relative group">
+                            <button>
+                              <i class="fas fa-ellipsis-h text-[#7F8FA4]"></i>
+                            </button>
+
+                            <!-- ---hover-content--  -->
+                            <div
+                              class="z-20 absolute w-[8.5rem] top-[100%] left-0 bg-[#FFFFFF] border-[1px] border-[#D9E7F7] rounded-[3px] shadow-sm p-3 hidden group-hover:block"
+                            >
+                              <p class="flex space-x-2 mb-2">
+                                <img
+                                  class="w-[16px]"
+                                  src="assets/img/icons/open-icon.png"
+                                  alt=""
+                                />
+                                <span class="text-[#AFB6C3] text-[14px]"
+                                  >Open</span
+                                >
+                              </p>
+                              <p class="flex space-x-2 mb-2">
+                                <img
+                                  class=""
+                                  src="assets/img/icons/shear-svg.svg"
+                                  alt=""
+                                />
+                                <span class="text-[#AFB6C3] text-[14px]">
+                                  Share
+                                </span>
+                              </p>
+                              <p class="flex space-x-2">
+                                <img
+                                  class="w-[16px]"
+                                  src="assets/img/icons/download-svg.svg"
+                                  alt=""
+                                />
+                                <span class="text-[#AFB6C3] text-[14px]"
+                                  >Download</span
+                                >
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="ml-[8rem] max-w-[467px] mt-1 py-[12px] px-[20px] border-[1px] border-[#E1E8EE] rounded-[5px] flex items-center justify-between"
+                        >
+                          <div class="flex space-x-5">
+                            <img src="assets/img/icons/pdf.svg" alt="" />
+                            <div class="">
+                              <p class="text-[#7F8FA4] text-[13px]">
+                                Aadhaar card
+                              </p>
+                              <p class="text-[#334150] text-[14px]">1.25 MB</p>
+                            </div>
+                          </div>
+                          <div class="relative group">
+                            <button>
+                              <i class="fas fa-ellipsis-h text-[#7F8FA4]"></i>
+                            </button>
+
+                            <!-- ---hover-content--  -->
+                            <div
+                              class="absolute w-[8.5rem] top-[100%] left-0 bg-[#FFFFFF] border-[1px] border-[#D9E7F7] rounded-[3px] shadow-sm p-3 hidden group-hover:block"
+                            >
+                              <p class="flex space-x-2 mb-2">
+                                <img
+                                  class="w-[16px]"
+                                  src="assets/img/icons/open-icon.png"
+                                  alt=""
+                                />
+                                <span class="text-[#AFB6C3] text-[14px]"
+                                  >Open</span
+                                >
+                              </p>
+                              <p class="flex space-x-2 mb-2">
+                                <img
+                                  class=""
+                                  src="assets/img/icons/shear-svg.svg"
+                                  alt=""
+                                />
+                                <span class="text-[#AFB6C3] text-[14px]">
+                                  Share
+                                </span>
+                              </p>
+                              <p class="flex space-x-2">
+                                <img
+                                  class="w-[16px]"
+                                  src="assets/img/icons/download-svg.svg"
+                                  alt=""
+                                />
+                                <span class="text-[#AFB6C3] text-[14px]"
+                                  >Download</span
+                                >
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-comments text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+                          <i
+                            ><img src="assets/img/icons/notes-cross.svg" alt=""
+                          /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >11 July</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Shruti goyal</span> wrote
+                          a note.
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >Notes</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-phone rotate-90 text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+                          <i
+                            ><img src="assets/img/icons/statement.svg" alt=""
+                          /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >11 July</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Nisha Sitharaman</span>
+                          got sanction letter from
+                          <span class="font-semibold">AXIS Bank</span>
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >Process?</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-phone rotate-90 text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+                          <i
+                            ><img
+                              src="assets/img/icons/phone-timeline.svg"
+                              alt=""
+                          /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >9 July</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Amit Sharma</span>
+                          made a call for 02:50 minutes.
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >Communication</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#FEEDED] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-phone rotate-90 text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+                          <i
+                            ><img src="assets/img/icons/Phone_red.svg" alt=""
+                          /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >9 July</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Amit Sharma</span> made a
+                          missed call.
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >Communication</span
+                        >
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center mt-7">
+                        <div
+                          class="icon w-[40px] h-[40px] bg-[#EAECF3] rounded-full flex justify-center items-center shrink-0"
+                        >
+                          <!-- <i
+                            class="fa fa-phone rotate-90 text-[#979EAB]"
+                            aria-hidden="true"
+                          ></i> -->
+                          <i
+                            ><img
+                              src="assets/img/icons/messageBlack.svg"
+                              alt=""
+                          /></i>
+                        </div>
+
+                        <div class="ml-4">
+                          <span
+                            class="font-inter font-medium text-[13px] text-[#C8CCDA]"
+                            >9:25 PM</span
+                          >
+                        </div>
+
+                        <div class="font-inter font-[14px] text-[#181F2E] ml-5">
+                          <span class="font-semibold">Hemant Chauhan</span>
+                          sent a message.
+                        </div>
+                      </div>
+                      <div class="">
+                        <span
+                          class="font-inter font-medium text-[12px] text-[#3D4450] bg-[#F0F0F2] text-center py-1 w-[109px] rounded-[12px] inline-block"
+                          >Communication</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ------ Document collection process ----  -->
+
+              <div
+                class="mt-11 flex justify-between h-[67px] items-center border-[1px] border-[#E1E8EE] rounded-[5px] px-[1rem]"
+              >
+                <h4
+                  class="font-inter text-[14px] text-[#181F2E] uppercase font-semibold"
+                >
+                  Document collection process
+                </h4>
+
+                <div class="flex items-center space-x-2">
+                  <span
+                    class="bg-[#428100] font-inter font-semibold text-[10px] text-[#FFFFFF] flex justify-center items-center px-3 py-1 rounded-[5px]"
+                  >
+                    <i class="fa fa-check mr-1" aria-hidden="true"></i>
+                    Complete</span
+                  >
+
+                  <div class="">
+                    <button
+                      class="bg-[#F0F0F2] w-[35px] h-[35px] flex justify-center items-center rounded-[4px]"
+                    >
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <!--======== Main Area End =========-->
+  </body>
+  <script>
+    // ---offcanvas ---
+
+    let openBtn = document.querySelector("#open_menu");
+    let closeBtn = document.querySelector(".menu-close");
+    let offCanvas = document.querySelector(".offcanvas-area");
+    let offCanvasOverly = document.querySelector("#offcanvasOverlay");
+
+    openBtn.addEventListener("click", () => {
+      offCanvas.classList.add("active");
+      offCanvasOverly.classList.add("active");
+    });
+    closeBtn.addEventListener("click", () => {
+      offCanvas.classList.remove("active");
+      offCanvasOverly.classList.remove("active");
+    });
+    offCanvasOverly.addEventListener("click", () => {
+      offCanvas.classList.remove("active");
+      offCanvasOverly.classList.remove("active");
+    });
+  </script>
+</html>

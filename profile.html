@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ---cdns for date picker --start--  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.4.3/dist/flowbite.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.4.3/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/flowbite@1.4.3/dist/datepicker.js"></script>
+    <!-- ---cdns for date picker --end--  -->
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: {
+            center: true,
+            padding: {
+              DEFAULT: "13px",
+              sm: "15px",
+              lg: "15px",
+              xl: "15px",
+            },
+            screens: {
+              sm: "600px",
+              md: "768px",
+              lg: "1024px",
+              xl: "1150px",
+              "2xl": "1150px",
+            },
+          },
+          extend: {
+            fontFamily: {
+              inter: ['"Inter", sans-serif'],
+            },
+            colors: {
+              textColor: "#7F8FA4",
+              themeColor: "#5B4DF2",
+              themeColor2: "#00DE56",
+              borderColor: "#E1E8EE",
+              dark: "#334150",
+              light: "#F5F6F7",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer base {
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap");
+        body {
+          font-family: "Lato", sans-serif;
+        }
+      }
+
+      .offcanvas-area,
+      .offcanvas-overlay {
+        transition: all 0.3s ease-in-out;
+      }
+      .offcanvas-overlay.active,
+      .offcanvas-area.active {
+        right: 0;
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+
+    <title>Broker Network</title>
+  </head>
+
+  <body class="bg-light">
+    <!--------- Offcanvas area start --------->
+    <div
+      class="offcanvas-area transition fixed top-0 right-[-100%] bg-[#5B4DF2] w-[300px] z-40 h-full shadow-md"
+    >
+      <div class="menu-close">
+        <i
+          class="far fa-times w-[30px] h-[30px] transition hover:bg-[#ffffff] hover:text-[#5B4DF2] flex justify-center items-center text-[16px] text-[#fff] absolute top-[18px] left-[18px] cursor-pointer border-[1px] p-1"
+        ></i>
+      </div>
+      <div class="offcanvas-menu">
+        <div class="main-menu">
+          <ul class="block mt-[110px]">
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-t-[1px] border-b-[1px] hover:bg-[#fff]"
+                >Owner’s supply</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Resale/Rental</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Add building</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Stories</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Home Loans</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Commercial</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Chat</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="offcanvasOverlay"
+      class="offcanvas-overlay fixed w-full h-full bg-[#000] right-[-100%] bg-opacity-70 z-30"
+    ></div>
+    <!--------- Offcanvas area end --------->
+    <!--======== Header Area Start =========-->
+    <header
+      class="header bg-themeColor w-full pl-4 md:pl-[50px] pr-6 relative flex items-center z-10"
+    >
+      <div class="header-logo max-w-[154px] flex-shrink-0 mr-3">
+        <a href=""><img src="assets/img/logos/logo.png" alt="" /></a>
+      </div>
+      <div class="header-main w-full flex items-center lg:justify-center">
+        <nav class="hidden lg:block header-nav">
+          <ul class="flex items-center justify-center space-x-1">
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Owner’s supply</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Resale/Rental</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Add building</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Stories</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-1 hover:after:opacity-100 after:transition-all"
+                >Home Loans</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Commercial</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Chat</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-2 px-2 leading-tight font-inter"
+                ><img src="assets/img/icons/dots.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="ml-auto lg:ml-0 header-profile flex items-center space-x-3 py-2.5 pl-8"
+        >
+          <a
+            href=""
+            class="inline-block md:hidden text-white text-sm transition relative inline-block py-2 leading-tight font-inter"
+            ><img src="assets/img/icons/dots.png" alt=""
+          /></a>
+
+          <div class="relative flex-shrink-0 ml-auto">
+            <img
+              src="assets/img/thumbs/profile-thumb.png"
+              class="sm:w-8 sm:h-8 h-9 w-9 lg:h-[38px] lg:w-[38px] rounded-full object-cover"
+              alt=""
+            />
+            <span
+              class="absolute border-2 border-themeColor rounded-full w-3 h-3 bottom-0.5 right-0 bg-themeColor2"
+            ></span>
+          </div>
+
+          <div
+            class="hidden md:block flex-col space-y-[6px] max-w-[158px] hidden lg:flex"
+          >
+            <h6 class="text-sm font-bold text-white leading-none">
+              Arun Pattnaik
+            </h6>
+            <span class="text-[13px] opacity-70 text-white block leading-none"
+              >Admin</span
+            >
+          </div>
+          <button class="flex-shrink-0 block lg:hidden" id="open_menu">
+            <i
+              class="fa fa-bars text-[22px] text-[#ffffff] font-[300]"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!--======== Header Area End =========-->
+
+    <!--======== Main Area Start =========-->
+    <main class="pt-5 lg:pt-8 pb-8">
+      <!--======== Content Area Start =========-->
+      <section class="content-area">
+        <div class="container">
+          <!-- ---responsive 1st---- -->
+          <section
+            class="flex items-center mb-4 md:mb-0 pb-4 border-b border-solid border-[#E1E8EE]"
+          >
+            <div class="flex items-center">
+              <div class="avater mr-2 shrink-0">
+                <img
+                  src="assets/img/thumbs/profile-thumb.png"
+                  class="w-[2.5rem] h-[2.5rem] rounded-full"
+                  alt=""
+                />
+              </div>
+
+              <div class="flex space-x-2 items-center">
+                <p
+                  class="font-Lato font-bold text-[#334150] text-[0.8rem] md:text-[1.3125rem] shrink-0"
+                >
+                  Arpit Gupta
+                </p>
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/phone.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="ml-2 shrink-0">
+                <button
+                  class="bg-[#E1E8EE] h-[31px] px-2 md:px-3 flex items-center justify-center text-[14px] font-medium rounded-[4px]"
+                >
+                  <i class="fas fa-edit mr-0 md:mr-1"></i>
+                  <span class="hidden md:inline-block">Add a note</span>
+                </button>
+              </div>
+            </div>
+            <div class="ml-auto md:ml-[142px] flex space-x-2">
+              <button
+                class="bg-[#E7E9FF] h-[24px] px-3 flex items-center justify-center text-[12px] font-Lato text-[#6161FF] rounded-[5px] shrink-0"
+              >
+                schedule a call
+              </button>
+
+              <div class="group relative flex">
+                <button
+                  class="flex-shrink-0 group bg-[#E7E9FF] h-[24px] px-2 md:px-3 flex items-center justify-center text-[12px] font-Lato text-[#334150] rounded-[5px] flex shrink-0"
+                >
+                  <img
+                    src="assets/img//icons/Icons  wait.svg"
+                    class="mr-0 md:mr-1"
+                    alt=""
+                  />
+
+                  <span class="hidden md:inline-block"
+                    >Documents collection</span
+                  >
+                </button>
+
+                <!-- ----- Documents collection --- hover content---  -->
+                <div
+                  class="absolute top-[135%] right-0 hidden group-hover:flex group-hover:flex-col flex-col z-20 w-[200px] bg-[#FFFFFF] shadow-md p-4 rounded-[3px]"
+                >
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Approved <span>(4)</span>
+                  </p>
+
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Documents collected <span>(7)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Verification <span>(2)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Sanction letter <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Disbursements <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Approved <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Documents collected <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Verification <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Sanction lette <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Disbursements <span>(4)</span>
+                  </p>
+                  <div
+                    class="absolute top-[-15px] right-[5%] w-11 overflow-hidden inline-block"
+                  >
+                    <div
+                      class="h-4 bg-white shadow-md z-10 relative rotate-45 transform origin-bottom-left"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ----- responsive 2nd -----  -->
+          <section
+            class="flex items-center justify-between pb-0 mb-4 border-b border-solid border-[#E1E8EE] md:flex-row flex-col"
+          >
+            <!-- list div  -->
+            <div class="md:order-1 order-2">
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[transparent] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Overview</a
+              >
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[#6161FF] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Profile</a
+              >
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[transparent] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Timeline</a
+              >
+            </div>
+
+            <!-- icons div  -->
+            <div class="flex items-center md:order-2 md:mb-0 mb-4">
+              <span class="text-[13px] not-italic font-medium text-[#747681]"
+                >Broker</span
+              >
+              <div class="flex items-center gap-2 pl-5 pr-[17px]">
+                <img
+                  src="assets/img/thumbs/profile-thumb.png"
+                  alt=""
+                  class="w-[1.5rem] h-[1.5rem] rounded-full"
+                />
+                <span class="text-[13px] not-italic font-bold text-dark"
+                  >Arun Pattnaik</span
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/phone.svg" alt="" />
+                </button>
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/message.svg" alt="" />
+                </button>
+                <button class="cursor-pointer">
+                  <img src="assets/img/icons/dot-light.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- --white conteant--  -->
+          <section class="bg-[#fff] py-4 px-1 rounded-[5px] mt-4">
+            <div class="">
+              <!-- section dashboard main  -->
+              <section class="grid grid-cols-12 bg-white gap-5">
+                <!-- left grid part  -->
+                <div class="lg:col-span-4 col-span-12">
+                  <h2
+                    class="not-italic font-bold text-base py-[5px] px-5 text-dark bg-[#E1E8EE1F]"
+                  >
+                    Basic information
+                  </h2>
+                  <div>
+                    <div
+                      class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                    >
+                      <span
+                        class="not-italic font-medium text-[13px] text-[#747681]"
+                        >Full Name</span
+                      >
+                      <span class="not-italic text-[14px] text-dark"
+                        >Arpit Gupta</span
+                      >
+                    </div>
+                    <div
+                      class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                    >
+                      <span
+                        class="not-italic font-medium text-[13px] text-[#747681]"
+                        >City</span
+                      >
+                      <span class="not-italic text-[14px] text-dark">Pune</span>
+                    </div>
+                    <div
+                      class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                    >
+                      <span
+                        class="not-italic font-medium text-[13px] text-[#747681]"
+                        >Email</span
+                      >
+                      <span class="not-italic text-[14px] text-dark"
+                        >bharat@gmail.com</span
+                      >
+                    </div>
+                    <div
+                      class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                    >
+                      <span
+                        class="not-italic font-medium text-[13px] text-[#747681]"
+                        >Phone Number</span
+                      >
+                      <div class="flex items-center gap-1">
+                        <span class="not-italic text-[14px] text-[#B4B4B4] mt-2"
+                          >********</span
+                        >
+                        <img
+                          src="assets/img/flagIndia.png"
+                          alt=""
+                          class="w-[16px]"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                    >
+                      <span
+                        class="not-italic font-medium text-[13px] text-[#747681]"
+                        >Loan needed</span
+                      >
+                      <span class="not-italic text-[14px] text-dark"
+                        >₹53,00,000</span
+                      >
+                    </div>
+                    <div
+                      class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                    >
+                      <span
+                        class="not-italic font-medium text-[13px] text-[#747681]"
+                        >Loan type</span
+                      >
+                      <span class="not-italic text-[14px] text-dark"
+                        >Home loan</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- middle part  -->
+                <div class="lg:col-span-4 col-span-12">
+                  <!-- middle top part  -->
+                  <div>
+                    <h2
+                      class="not-italic font-bold text-base py-[5px] px-5 text-dark bg-[#E1E8EE1F]"
+                    >
+                      Property details
+                    </h2>
+                    <div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Agreement value</label
+                        >
+                        <input
+                          type="text"
+                          class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="31,00,000"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Loan required</label
+                        >
+                        <input
+                          type="text"
+                          class="placeholder:text-[#249AF3] py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="Enter value here"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >All inclusive cost</label
+                        >
+                        <input
+                          type="text"
+                          class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="75,00,000"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Own contribution</label
+                        >
+                        <input
+                          type="text"
+                          class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="10,00,000"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Property type</label
+                        >
+                        <select
+                          name=""
+                          id=""
+                          class="py-[7px] pl-[15px] w-[220px] appearance-none bg-white bg-no-repeat bg-right bg-[url('assets/img/icons/arrowDown.svg')] outline-themeColor border border-solid border-[#F5F5F5] rounded-[5px] text-[14px] text-[#BFC7D1] font-medium"
+                          style="background-position: calc(100% - 15px)"
+                        >
+                          <option value="" selected>Under construction</option>
+                          <option value="">option 1</option>
+                          <option value="">option 2</option>
+                          <option value="">option 3</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- middle bottom part  -->
+                  <div>
+                    <h2
+                      class="not-italic font-bold text-base py-[5px] px-5 text-dark bg-[#E1E8EE1F]"
+                    >
+                      Applicant Details
+                    </h2>
+                    <div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Resident</label
+                        >
+                        <select
+                          name=""
+                          id=""
+                          class="py-[7px] pl-[15px] w-[220px] appearance-none bg-white bg-no-repeat bg-right bg-[url('assets/img/icons/arrowDown.svg')] outline-themeColor border border-solid border-[#F5F5F5] rounded-[5px] text-[14px] text-[#BFC7D1] font-medium"
+                          style="background-position: calc(100% - 15px)"
+                        >
+                          <option value="" selected>Indian</option>
+                          <option value="">option 1</option>
+                          <option value="">option 2</option>
+                          <option value="">option 3</option>
+                        </select>
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Gender</label
+                        >
+                        <input
+                          type="text"
+                          class="placeholder:text-[#249AF3] py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="Enter value here"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Employment type</label
+                        >
+                        <select
+                          name=""
+                          id=""
+                          class="py-[7px] pl-[15px] w-[220px] appearance-none bg-white bg-no-repeat bg-right bg-[url('assets/img/icons/arrowDown.svg')] outline-themeColor border border-solid border-[#F5F5F5] rounded-[5px] text-[14px] text-[#BFC7D1] font-medium"
+                          style="background-position: calc(100% - 15px)"
+                        >
+                          <option value="" selected>Salaried</option>
+                          <option value="">option 1</option>
+                          <option value="">option 2</option>
+                          <option value="">option 3</option>
+                        </select>
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Cibil score</label
+                        >
+                        <input
+                          type="text"
+                          class="placeholder:text-[#249AF3] py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="Enter PAN to compute"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Date of birth</label
+                        >
+                        <!-- <input
+                          type="date"
+                          class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="Enter PAN to compute"
+                        /> -->
+
+                        <div class="relative">
+                          <div
+                            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                          >
+                            <svg
+                              class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+                          <input
+                            datepicker=""
+                            type="text"
+                            class="pl-10 py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor placeholder:text-[#249AF3]"
+                            placeholder="Choose date of birth"
+                          />
+                        </div>
+
+                        <!-- <div class="flex">
+                          <input
+                            type="date"
+                            class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                            placeholder="Enter PAN to compute"
+                          />
+                          <span class="ml-auto">
+                            <img
+                              src="path/to/date-icon.png"
+                              alt="Date Icon"
+                              class="w-5 h-5"
+                            />
+                          </span>
+                        </div> -->
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Income details</label
+                        >
+                        <input
+                          type="text"
+                          class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="10,00,000"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Add. income (if any)</label
+                        >
+                        <input
+                          type="text"
+                          class="placeholder:text-[#249AF3] flex-shrink-0 y-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="Enter value here"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Existing loan emi (if any)</label
+                        >
+                        <input
+                          type="text"
+                          class="flex-shrink-0 py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="10,00,000"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- rigth grid part  -->
+                <div class="lg:col-span-4 col-span-12">
+                  <div>
+                    <h2
+                      class="not-italic font-bold text-base py-[5px] px-5 text-dark bg-[#E1E8EE1F]"
+                    >
+                      Additional information
+                    </h2>
+                    <div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5] gap-2"
+                      >
+                        <span
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                        >
+                          Preferred banks</span
+                        >
+                        <a
+                          href="#"
+                          class="font-medium text-[12px] not-italic text-themeColor px-[10px] py-[3px] bg-[#34CC9C1A]"
+                          >Kotak bank</a
+                        >
+                        <a
+                          href="#"
+                          class="font-medium text-[12px] not-italic text-themeColor px-[10px] py-[3px] bg-[#34CC9C1A]"
+                          >SBI</a
+                        >
+                        <a
+                          href="#"
+                          class="font-medium text-[12px] not-italic text-themeColor px-[10px] py-[3px] bg-[#34CC9C1A]"
+                          >Axis bank</a
+                        >
+                        <a href="#">
+                          <img src="assets/img/dot-light.svg" alt="" />
+                        </a>
+                      </div>
+
+                      <!-- <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >LOS number</label
+                        >
+                        <div class="relative max-w-sm">
+                          <div
+                            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                          >
+                            <img src="assets/img/Calendar.svg" alt="" />
+                          </div>
+                          <input
+                            datepicker
+                            type="date"
+                            class="py-[7px] px-[15px] pl-10 w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                            placeholder="Select date"
+                          />
+                        </div>
+                      </div>  -->
+
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Finalised property?</label
+                        >
+                        <select
+                          name=""
+                          id=""
+                          class="py-[7px] pl-[15px] w-[220px] appearance-none bg-white bg-no-repeat bg-right bg-[url('assets/img/icons/arrowDown.svg')] outline-themeColor border border-solid border-[#F5F5F5] rounded-[5px] text-[14px] text-[#BFC7D1] font-medium"
+                          style="background-position: calc(100% - 15px)"
+                        >
+                          <option value="" selected>No</option>
+                          <option value="">Yes</option>
+                        </select>
+                      </div>
+
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Tentative sanction</label
+                        >
+                        <!-- <input
+                          type="date"
+                          class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="Enter value here"
+                        /> -->
+                        <div class="relative">
+                          <div
+                            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                          >
+                            <svg
+                              class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+                          <input
+                            datepicker=""
+                            type="text"
+                            class="pl-10 py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor placeholder:text-[#249AF3]"
+                            placeholder="Choose date"
+                          />
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >ROC required?</label
+                        >
+                        <select
+                          name=""
+                          id=""
+                          class="py-[7px] pl-[15px] w-[220px] appearance-none bg-white bg-no-repeat bg-right bg-[url('assets/img/icons/arrowDown.svg')] outline-themeColor border border-solid border-[#F5F5F5] rounded-[5px] text-[14px] text-[#BFC7D1] font-medium"
+                          style="background-position: calc(100% - 15px)"
+                        >
+                          <option value="" selected>Yes</option>
+                          <option value="">No</option>
+                        </select>
+                      </div>
+
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >LOS number</label
+                        >
+                        <input
+                          type="text"
+                          class="placeholder:text-[#249AF3] py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="Enter value here"
+                        />
+                      </div>
+
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Any case lodged?</label
+                        >
+                        <select
+                          name=""
+                          id=""
+                          class="py-[7px] pl-[15px] w-[220px] appearance-none bg-white bg-no-repeat bg-right bg-[url('assets/img/icons/arrowDown.svg')] outline-themeColor border border-solid border-[#F5F5F5] rounded-[5px] text-[14px] text-[#BFC7D1] font-medium"
+                          style="background-position: calc(100% - 15px)"
+                        >
+                          <option value="" selected>No</option>
+                          <option value="">Yes</option>
+                        </select>
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Commission %</label
+                        >
+                        <input
+                          type="text"
+                          class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="3"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Loan disbursed</label
+                        >
+                        <input
+                          type="text"
+                          class="py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="0"
+                        />
+                      </div>
+                      <div
+                        class="flex items-center justify-between px-5 py-[14px] border-b border-[#F5F5F5]"
+                      >
+                        <label
+                          class="not-italic font-medium text-[13px] text-[#747681]"
+                          >Commission disbursed</label
+                        >
+                        <input
+                          type="text"
+                          class="flex-shrink-0 py-[7px] px-[15px] w-[220px] text-[#BFC7D1] text-[14px] font-medium rounded-[5px] border border-solid border-[#F5F5F5] outline-themeColor"
+                          placeholder="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <div class="">
+            <button
+              class="mx-auto mt-6 text-[14px] w-[202px] h-[36px] bg-[#6161FF] rounded-[5px] text-[#fff] flex justify-center items-center"
+            >
+              Show result
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--======== Main Area End =========-->
+  </body>
+  <script>
+    // ---offcanvas ---
+
+    let openBtn = document.querySelector("#open_menu");
+    let closeBtn = document.querySelector(".menu-close");
+    let offCanvas = document.querySelector(".offcanvas-area");
+    let offCanvasOverly = document.querySelector("#offcanvasOverlay");
+
+    openBtn.addEventListener("click", () => {
+      offCanvas.classList.add("active");
+      offCanvasOverly.classList.add("active");
+    });
+    closeBtn.addEventListener("click", () => {
+      offCanvas.classList.remove("active");
+      offCanvasOverly.classList.remove("active");
+    });
+    offCanvasOverly.addEventListener("click", () => {
+      offCanvas.classList.remove("active");
+      offCanvasOverly.classList.remove("active");
+    });
+  </script>
+</html>

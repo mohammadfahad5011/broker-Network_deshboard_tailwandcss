@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ---cdns for date picker --start--  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.4.3/dist/flowbite.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.4.3/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/flowbite@1.4.3/dist/datepicker.js"></script>
+    <!-- ---cdns for date picker --end--  -->
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          container: {
+            center: true,
+            padding: {
+              DEFAULT: "13px",
+              sm: "15px",
+              lg: "15px",
+              xl: "15px",
+            },
+            screens: {
+              sm: "600px",
+              md: "768px",
+              lg: "1024px",
+              xl: "1150px",
+              "2xl": "1150px",
+            },
+          },
+          extend: {
+            fontFamily: {
+              inter: ['"Inter", sans-serif'],
+            },
+            colors: {
+              textColor: "#7F8FA4",
+              themeColor: "#5B4DF2",
+              themeColor2: "#00DE56",
+              borderColor: "#E1E8EE",
+              dark: "#334150",
+              light: "#F5F6F7",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer base {
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap");
+        body {
+          font-family: "Lato", sans-serif;
+        }
+      }
+
+      .offcanvas-area,
+      .offcanvas-overlay {
+        transition: all 0.3s ease-in-out;
+      }
+      .offcanvas-overlay.active,
+      .offcanvas-area.active {
+        right: 0;
+        transition: all 0.3s ease-in-out;
+      }
+    </style>
+
+    <title>Broker Network</title>
+  </head>
+
+  <body class="bg-light">
+    <!-- ---- profile - loan options - charges ---  -->
+    <section class="fixed inset-0 z-20">
+      <!-- ---overlay---  -->
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-[#1A1E23] bg-opacity-70 z-20"
+      ></div>
+
+      <!-- ---- sidebar ---  -->
+      <div
+        class="overflow-y-auto max-w-[476px] w-full h-full bg-white absolute top-0 right-0 z-20 rounded-tl-[5px] rounded-bl-[5px]"
+      >
+        <div class="flex flex-col h-full">
+          <div
+            class="flex items-center justify-between h-[58px] px-4 border-b-[1px] py-4"
+          >
+            <div class="flex space-x-2 items-center">
+              <div
+                class="w-[47px] h-[47px] rounded-full bg-themeColor overflow-hidden"
+              >
+                <img src="" class="w-full h-full object-cover" alt="" />
+              </div>
+              <h3 class="text-[16px] font-Lato font-semibold text-[#334150]">
+                Kotak bank home loan
+              </h3>
+            </div>
+            <div class="">
+              <button class="cursor-pointer">
+                <i
+                  class="fa fa-times font-[100] text-[#7F8FA4]"
+                  aria-hidden="true"
+                ></i>
+              </button>
+            </div>
+          </div>
+          <div class="pt-8 px-14 flex flex-col h-full justify-between">
+            <div class="flex flex-col space-y-[14px]">
+              <div class="flex justify-between">
+                <div class="">
+                  <h3
+                    class="mb-2 text-[16px] font-Lato font-semibold text-[#334150]"
+                  >
+                    Processing fees
+                  </h3>
+                  <p class="text-[12px] font-Lato text-[#9EA7B1]">
+                    At loan application
+                  </p>
+                </div>
+                <p class="text-[16px] font-bold text-[#334150]">₹ 319</p>
+              </div>
+              <div class="flex justify-between">
+                <div class="">
+                  <h3
+                    class="mb-2 text-[16px] font-Lato font-semibold text-[#334150]"
+                  >
+                    Legal search fees
+                  </h3>
+                  <p class="text-[12px] font-Lato text-[#9EA7B1]">
+                    At loan application
+                  </p>
+                </div>
+                <p class="text-[16px] font-bold text-[#334150]">₹ 6,500</p>
+              </div>
+
+              <div
+                class="flex justify-between pb-3 border-b-[1px] border-[#EAE5E5]"
+              >
+                <div class="">
+                  <h3
+                    class="mb-2 text-[16px] font-Lato font-semibold text-[#334150]"
+                  >
+                    Stamp duty
+                  </h3>
+                  <p class="text-[12px] font-Lato text-[#9EA7B1]">
+                    At agreement signing
+                  </p>
+                </div>
+                <p class="text-[16px] font-bold text-[#334150]">₹ 324</p>
+              </div>
+
+              <div class="mt-3 flex justify-between">
+                <div class="">
+                  <h3
+                    class="mb-2 text-[16px] font-Lato font-semibold text-[#334150]"
+                  >
+                    Total
+                  </h3>
+                  <p class="text-[12px] font-Lato text-[#9EA7B1]">
+                    Charges listed above are subject to change.
+                  </p>
+                </div>
+                <p class="text-[16px] font-bold text-[#334150]">₹ 7,736</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--------- Offcanvas area start --------->
+    <div
+      class="offcanvas-area transition fixed top-0 right-[-100%] bg-[#5B4DF2] w-[300px] z-40 h-full shadow-md"
+    >
+      <div class="menu-close">
+        <i
+          class="far fa-times w-[30px] h-[30px] transition hover:bg-[#ffffff] hover:text-[#5B4DF2] flex justify-center items-center text-[16px] text-[#fff] absolute top-[18px] left-[18px] cursor-pointer border-[1px] p-1"
+        ></i>
+      </div>
+      <div class="offcanvas-menu">
+        <div class="main-menu">
+          <ul class="block mt-[110px]">
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-t-[1px] border-b-[1px] hover:bg-[#fff]"
+                >Owner’s supply</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Resale/Rental</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Add building</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Stories</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Home Loans</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Commercial</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm block py-3 px-4 transition hover:text-[#5B4DF2] border-b-[1px] hover:bg-[#fff]"
+                >Chat</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="offcanvasOverlay"
+      class="offcanvas-overlay fixed w-full h-full bg-[#000] right-[-100%] bg-opacity-70 z-30"
+    ></div>
+    <!--------- Offcanvas area end --------->
+    <!--======== Header Area Start =========-->
+    <header
+      class="header bg-themeColor w-full pl-4 md:pl-[50px] pr-6 relative flex items-center z-10"
+    >
+      <div class="header-logo max-w-[154px] flex-shrink-0 mr-3">
+        <a href=""><img src="assets/img/logos/logo.png" alt="" /></a>
+      </div>
+      <div class="header-main w-full flex items-center lg:justify-center">
+        <nav class="hidden lg:block header-nav">
+          <ul class="flex items-center justify-center space-x-1">
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Owner’s supply</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Resale/Rental</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Add building</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Stories</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-1 hover:after:opacity-100 after:transition-all"
+                >Home Loans</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Commercial</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all"
+                >Chat</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="text-white text-sm transition relative inline-block py-2 px-2 leading-tight font-inter"
+                ><img src="assets/img/icons/dots.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="ml-auto lg:ml-0 header-profile flex items-center space-x-3 py-2.5 pl-8"
+        >
+          <a
+            href=""
+            class="inline-block md:hidden text-white text-sm transition relative inline-block py-2 leading-tight font-inter"
+            ><img src="assets/img/icons/dots.png" alt=""
+          /></a>
+
+          <div class="relative flex-shrink-0 ml-auto">
+            <img
+              src="assets/img/thumbs/profile-thumb.png"
+              class="sm:w-8 sm:h-8 h-9 w-9 lg:h-[38px] lg:w-[38px] rounded-full object-cover"
+              alt=""
+            />
+            <span
+              class="absolute border-2 border-themeColor rounded-full w-3 h-3 bottom-0.5 right-0 bg-themeColor2"
+            ></span>
+          </div>
+
+          <div
+            class="hidden md:block flex-col space-y-[6px] max-w-[158px] hidden lg:flex"
+          >
+            <h6 class="text-sm font-bold text-white leading-none">
+              Arun Pattnaik
+            </h6>
+            <span class="text-[13px] opacity-70 text-white block leading-none"
+              >Admin</span
+            >
+          </div>
+          <button class="flex-shrink-0 block lg:hidden" id="open_menu">
+            <i
+              class="fa fa-bars text-[22px] text-[#ffffff] font-[300]"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!--======== Header Area End =========-->
+
+    <!--======== Main Area Start =========-->
+    <main class="pt-5 lg:pt-8 pb-8">
+      <!--======== Content Area Start =========-->
+      <section class="content-area">
+        <div class="container">
+          <!-- ---responsive 1st---- -->
+          <section
+            class="flex items-center mb-4 md:mb-0 pb-4 border-b border-solid border-[#E1E8EE]"
+          >
+            <div class="flex items-center">
+              <div class="avater mr-2 shrink-0">
+                <img
+                  src="assets/img/thumbs/profile-thumb.png"
+                  class="w-[2.5rem] h-[2.5rem] rounded-full"
+                  alt=""
+                />
+              </div>
+
+              <div class="flex space-x-2 items-center">
+                <p
+                  class="font-Lato font-bold text-[#334150] text-[0.8rem] md:text-[1.3125rem] shrink-0"
+                >
+                  Arpit Gupta
+                </p>
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/phone.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="ml-2 shrink-0">
+                <button
+                  class="bg-[#E1E8EE] h-[31px] px-2 md:px-3 flex items-center justify-center text-[14px] font-medium rounded-[4px]"
+                >
+                  <i class="fas fa-edit mr-0 md:mr-1"></i>
+                  <span class="hidden md:inline-block">Add a note</span>
+                </button>
+              </div>
+            </div>
+            <div class="ml-auto md:ml-[142px] flex space-x-2">
+              <button
+                class="bg-[#E7E9FF] h-[24px] px-3 flex items-center justify-center text-[12px] font-Lato text-[#6161FF] rounded-[5px] shrink-0"
+              >
+                schedule a call
+              </button>
+
+              <div class="group relative flex">
+                <button
+                  class="flex-shrink-0 group bg-[#E7E9FF] h-[24px] px-2 md:px-3 flex items-center justify-center text-[12px] font-Lato text-[#334150] rounded-[5px] flex shrink-0"
+                >
+                  <img
+                    src="assets/img//icons/Icons  wait.svg"
+                    class="mr-0 md:mr-1"
+                    alt=""
+                  />
+
+                  <span class="hidden md:inline-block"
+                    >Documents collection</span
+                  >
+                </button>
+
+                <!-- ----- Documents collection --- hover content---  -->
+                <div
+                  class="absolute top-[135%] right-0 hidden group-hover:flex group-hover:flex-col flex-col z-20 w-[200px] bg-[#FFFFFF] shadow-md p-4 rounded-[3px]"
+                >
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Approved <span>(4)</span>
+                  </p>
+
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Documents collected <span>(7)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Verification <span>(2)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Sanction letter <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Disbursements <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Approved <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Documents collected <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Verification <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Sanction lette <span>(4)</span>
+                  </p>
+                  <p class="text-[#334150] text-[14px] py-2">
+                    Disbursements <span>(4)</span>
+                  </p>
+                  <div
+                    class="absolute top-[-15px] right-[5%] w-11 overflow-hidden inline-block"
+                  >
+                    <div
+                      class="h-4 bg-white shadow-md z-10 relative rotate-45 transform origin-bottom-left"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ----- responsive 2nd -----  -->
+          <section
+            class="flex items-center justify-between pb-0 mb-4 border-b border-solid border-[#E1E8EE] md:flex-row flex-col"
+          >
+            <!-- list div  -->
+            <div class="md:order-1 order-2">
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[transparent] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Overview</a
+              >
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[#6161FF] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Profile</a
+              >
+              <a
+                href="#"
+                class="inline-block font-Lato text-[16px] text-[#7F8FA4] hover:text-[#5B4DF2] border-b-2 border-[transparent] hover:border-b-2 hover:border-[#6161FF] transition px-2 py-2 md:px-8 md:py-4"
+                >Timeline</a
+              >
+            </div>
+
+            <!-- icons div  -->
+            <div class="flex items-center md:order-2 md:mb-0 mb-4">
+              <span class="text-[13px] not-italic font-medium text-[#747681]"
+                >Broker</span
+              >
+              <div class="flex items-center gap-2 pl-5 pr-[17px]">
+                <img
+                  src="assets/img/thumbs/profile-thumb.png"
+                  alt=""
+                  class="w-[1.5rem] h-[1.5rem] rounded-full"
+                />
+                <span class="text-[13px] not-italic font-bold text-dark"
+                  >Arun Pattnaik</span
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/phone.svg" alt="" />
+                </button>
+                <button
+                  class="cursor-pointer w-[24px] h-[24px] bg-[#E1E8EE] rounded-full flex justify-center items-center"
+                >
+                  <img src="assets/img/icons/message.svg" alt="" />
+                </button>
+                <button class="cursor-pointer">
+                  <img src="assets/img/icons/dot-light.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- --white conteant--  -->
+          <section class="mb-[54px] bg-white px-5 py-5 rounded-[5px] mt-4">
+            <!-- ---responsive back to profile ----  -->
+            <div class="flex items-center justify-between mb-4">
+              <p
+                class="not-italic font-Lato text-base font-bold text-[#111827]"
+              >
+                Reviewing Arpit Gupta’s loan options
+              </p>
+              <a
+                href="#"
+                class="flex flex-shrink-0 font-Lato h-[36px] flex items-center gap-[9px] text-themeColor bg-[#E4E6FF] px-[15px] py-[7px] rounded-[5px]"
+              >
+                <img
+                  class="flex-shrink-0"
+                  src="assets/img/icons/left-arrow.svg"
+                  alt=""
+                />
+                <span class="flex-shrink-0">Back to profile</span>
+              </a>
+            </div>
+
+            <!-- Application details section start from here  -->
+            <div
+              class="py-[17px] px-5 flex justify-between bg-[#F5F6F7] rounded-[5px] md:flex-row flex-col"
+            >
+              <!-- left part  -->
+              <div class="md:w-1/2 w-full">
+                <h2
+                  class="font-Lato font-bold text-base not-italic text-darkText mb-[11px]"
+                >
+                  Application details
+                </h2>
+                <div class="flex justify-between">
+                  <div class="md:pr-0 pr-1">
+                    <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                      Agreement value
+                    </p>
+                    <p
+                      class="text-[#334150] text-[13px] not-italic font-medium pb-[3px]"
+                    >
+                      31 Lakhs
+                    </p>
+                    <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                      All inclusive cost
+                    </p>
+                    <p
+                      class="text-[#334150] text-[13px] not-italic font-medium"
+                    >
+                      31 Lakhs
+                    </p>
+                  </div>
+                  <div class="md:pr-0 pr-1">
+                    <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                      Own contribution
+                    </p>
+                    <p
+                      class="text-[#334150] text-[13px] not-italic font-medium pb-[3px]"
+                    >
+                      1 Lakhs
+                    </p>
+                    <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                      Net monthly income
+                    </p>
+                    <p
+                      class="text-[#334150] text-[13px] not-italic font-medium"
+                    >
+                      50,000
+                    </p>
+                  </div>
+                  <div class="md:pr-0 pr-1">
+                    <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                      Gross monthly income
+                    </p>
+                    <p
+                      class="text-[#334150] text-[13px] not-italic font-medium pb-[3px]"
+                    >
+                      35,000
+                    </p>
+                    <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                      Additional income
+                    </p>
+                    <p
+                      class="text-[#334150] text-[13px] not-italic font-medium"
+                    >
+                      0
+                    </p>
+                  </div>
+                  <div class="md:pr-0 pr-1">
+                    <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                      Existing EMI
+                    </p>
+                    <p
+                      class="text-[#334150] text-[13px] not-italic font-medium pb-[3px]"
+                    >
+                      0
+                    </p>
+                    <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                      Loan required
+                    </p>
+                    <p
+                      class="text-[#334150] text-[13px] not-italic font-medium"
+                    >
+                      25 Lakhs
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- right part  -->
+              <div class="md:w-1/2 w-full md:ml-10 ml-0 md:mt-4 mt-8">
+                <div
+                  class="relative h-[72px] bg-[#E9EBEE] pl-[21px] pt-[17px] pb-[9px] rounded-[5px]"
+                >
+                  <span
+                    class="font-inter font-medium h-[31px] rounded bg-[#D4D4D4] text-[#181F2E] px-[9px] py-[6px] absolute -top-4 flex items-center justify-center"
+                    >Summary</span
+                  >
+                  <div class="flex items-center gap-[7px]">
+                    <img src="assets/img/icons/righ_arrow_black.svg" alt="" />
+                    <p
+                      class="font-medium text-[13px] not-italic text-[#6B747F]"
+                    >
+                      Your home loan eligibility is up to ₹
+                      <span class="text-[#444D55] font-bold text-[14px]"
+                        >1,00,51,041</span
+                      >
+                      based on your income.
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-[7px]">
+                    <img src="assets/img/icons/righ_arrow_black.svg" alt="" />
+                    <p
+                      class="font-medium text-[13px] not-italic text-[#6B747F]"
+                    >
+                      Property’s home loan eligibility is up to ₹
+                      <span class="text-[#444D55] font-bold text-[14px]"
+                        >30 Lakhs</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href="#"
+                  class="h-[36px] flex items-center gap-[9px] text-themeColor bg-[#E4E6FF] px-[15px] py-[7px] rounded-[5px] max-w-[154px] justify-center ml-auto mt-3"
+                >
+                  Make changes
+                </a>
+              </div>
+            </div>
+
+            <!-- Home loan options start from here  -->
+            <div class="mt-[43px]">
+              <h2
+                class="text-darkText text-base uppercase not-italic font-bold mb-2"
+              >
+                Home loan options
+              </h2>
+
+              <div class="flex items-center justify-between flex-wrap">
+                <div class="flex items-center gap-4 flex-wrap">
+                  <div class="relative inline-flex w-[144px]">
+                    <select
+                      class="border border-gray-300 rounded text-[14px] font-medium text-[#181F2E] h-[31px] pl-[10px] bg-[#F5F6F7] hover:border-gray-400 focus:outline-none appearance-none w-full"
+                    >
+                      <option selected>Customise loan</option>
+                      <option>option-1</option>
+                      <option>option-2</option>
+                    </select>
+                  </div>
+                  <div class="relative inline-flex w-[144px]">
+                    <select
+                      class="border border-gray-300 rounded text-[14px] font-medium text-[#181F2E] h-[31px] pl-[10px] bg-[#F5F6F7] hover:border-gray-400 focus:outline-none appearance-none w-full"
+                    >
+                      <option selected>Lenders</option>
+                      <option>option-1</option>
+                      <option>option-2</option>
+                    </select>
+                  </div>
+                  <div class="relative inline-flex w-[151px]">
+                    <select
+                      class="border border-gray-300 rounded text-[14px] font-medium text-[#181F2E] h-[31px] pl-[10px] bg-[#F5F6F7] hover:border-gray-400 focus:outline-none appearance-none w-full"
+                    >
+                      <option selected>Lender category</option>
+                      <option>option-1</option>
+                      <option>option-2</option>
+                    </select>
+                  </div>
+                  <div class="relative inline-flex w-[179px]">
+                    <select
+                      class="border border-gray-300 rounded text-[14px] font-medium text-[#181F2E] h-[31px] pl-[10px] bg-[#F5F6F7] hover:border-gray-400 focus:outline-none appearance-none w-full"
+                    >
+                      <option selected>Sort by: loan amount</option>
+                      <option>option-1</option>
+                      <option>option-2</option>
+                    </select>
+                  </div>
+                </div>
+
+                <a
+                  href="#"
+                  class="h-[36px] flex items-center gap-[9px] text-themeColor bg-themeColor px-[22px] py-[7px] rounded-[5px] text-white justify-center md:mt-0 mt-4"
+                >
+                  Share with customer
+                </a>
+              </div>
+
+              <div
+                class="pt-[17px] pb-6 px-5 flex justify-between bg-[#ffffff] rounded-[5px] border border-[#E1E8EE] mt-4 md:flex-row flex-col"
+              >
+                <!-- left part  -->
+                <div class="md:w-1/2 w-full">
+                  <div class="flex gap-4">
+                    <div
+                      class="w-[38px] h-[38px] rounded-full bg-themeColor flex items-center justify-center shrink-0"
+                    >
+                      <img src="" alt="" class="shrink-0" />
+                    </div>
+                    <div class="max-w-[397px]">
+                      <span
+                        class="font-bold text-base text-[#111827] mb-1 mt-1 inline-block"
+                      >
+                        Citi bank home loans</span
+                      >
+                      <p
+                        class="text-[13px] leading-[19px] font-light text-[#7F8FA4]"
+                      >
+                        Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                        venenatis vestibulum. Duis mollis, est non commodo
+                        luctus
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- right part  -->
+                <div class="md:w-1/2 w-full md:pr-16 pr-0 md:mt-0 mt-5">
+                  <div class="flex justify-between">
+                    <div class="md:pr-0 pr-1">
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Loan amount
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium pb-[10px]"
+                      >
+                        ₹25 Lakhs
+                      </p>
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        EMI tenure
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium"
+                      >
+                        28 years
+                      </p>
+                    </div>
+                    <div class="md:pr-0 pr-1">
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Interest rate
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium pb-[10px]"
+                      >
+                        Starts at 7%
+                      </p>
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Total tenure
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium"
+                      >
+                        28 years
+                      </p>
+                    </div>
+                    <div class="md:pr-0 pr-1">
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Pre-EMI
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium pb-[10px]"
+                      >
+                        0
+                      </p>
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Total charges
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium"
+                      >
+                        ₹65,100
+                      </p>
+                    </div>
+                    <div class="md:pr-0 pr-1">
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        EMI
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium pb-[10px]"
+                      >
+                        ₹55,959
+                      </p>
+                      <span
+                        class="text-yellow h-6 bg-[#E7E9FF] rounded-[5px] not-italic font-medium text-[12px] text-center px-[13px] py-1 mt-3 inline-block"
+                      >
+                        Breakup
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="pt-[17px] pb-6 px-5 flex justify-between bg-[#ffffff] rounded-[5px] border border-[#E1E8EE] mt-4 md:flex-row flex-col"
+              >
+                <!-- left part  -->
+                <div class="md:w-1/2 w-full">
+                  <div class="flex gap-4">
+                    <div
+                      class="w-[38px] h-[38px] rounded-full bg-themeColor flex items-center justify-center shrink-0"
+                    >
+                      <img src="" alt="" class="shrink-0" />
+                    </div>
+                    <div class="max-w-[397px]">
+                      <span
+                        class="font-bold text-base text-[#111827] mb-1 mt-1 inline-block"
+                      >
+                        Kotak home finance</span
+                      >
+                      <p
+                        class="text-[13px] leading-[19px] font-light text-[#7F8FA4]"
+                      >
+                        Morbi leo risus, porta ac consectetur ac, vestibulum at
+                        eros. Maecenas faucibus mollis interdum. Etiam porta sem
+                        malesuada magna mollis euismod. Vestibulum id ligula
+                        porta felis euismod semper.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- right part  -->
+                <div class="md:w-1/2 w-full md:pr-16 pr-0 md:mt-0 mt-5">
+                  <div class="flex justify-between">
+                    <div class="md:pr-0 pr-1">
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Loan amount
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium pb-[10px]"
+                      >
+                        ₹25 Lakhs
+                      </p>
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        EMI tenure
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium"
+                      >
+                        28 years
+                      </p>
+                    </div>
+                    <div class="md:pr-0 pr-1">
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Interest rate
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium pb-[10px]"
+                      >
+                        Starts at 7%
+                      </p>
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Total tenure
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium"
+                      >
+                        28 years
+                      </p>
+                    </div>
+                    <div class="md:pr-0 pr-1">
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Pre-EMI
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium pb-[10px]"
+                      >
+                        0
+                      </p>
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        Total charges
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium"
+                      >
+                        ₹65,100
+                      </p>
+                    </div>
+                    <div class="md:pr-0 pr-1">
+                      <p class="not-italic text-[13px] text-[#7F8FA4] pb-[2px]">
+                        EMI
+                      </p>
+                      <p
+                        class="text-[#334150] text-[13px] not-italic font-medium pb-[10px]"
+                      >
+                        ₹55,959
+                      </p>
+                      <span
+                        class="text-yellow h-6 bg-[#E7E9FF] rounded-[5px] not-italic font-medium text-[12px] text-center px-[13px] py-1 mt-3 inline-block"
+                      >
+                        Breakup
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <!--======== Main Area End =========-->
+    <script>
+      // ---offcanvas ---
+
+      let openBtn = document.querySelector("#open_menu");
+      let closeBtn = document.querySelector(".menu-close");
+      let offCanvas = document.querySelector(".offcanvas-area");
+      let offCanvasOverly = document.querySelector("#offcanvasOverlay");
+
+      openBtn.addEventListener("click", () => {
+        offCanvas.classList.add("active");
+        offCanvasOverly.classList.add("active");
+      });
+      closeBtn.addEventListener("click", () => {
+        offCanvas.classList.remove("active");
+        offCanvasOverly.classList.remove("active");
+      });
+      offCanvasOverly.addEventListener("click", () => {
+        offCanvas.classList.remove("active");
+        offCanvasOverly.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

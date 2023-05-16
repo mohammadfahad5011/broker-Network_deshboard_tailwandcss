@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: {
+                        DEFAULT: '13px',
+                        sm: '15px',
+                        lg: '15px',
+                        xl: '15px',
+                    },
+                    screens: {
+                        sm: '600px',
+                        md: '768px',
+                        lg: '1024px',
+                        xl: '1150px',
+                        '2xl': '1150px',
+                    },
+                },
+                extend: {
+                    fontFamily: {
+                        'inter': ['"Inter", sans-serif'],
+                    },
+                    colors: {
+                        textColor: "#7F8FA4",
+                        themeColor: "#5B4DF2",
+                        themeColor2: "#00DE56",
+                        borderColor: "#E1E8EE",
+                        dark: "#334150",
+                        light: "#F5F6F7",
+                    },
+                },
+            },
+        };
+
+    </script>
+
+    <style type="text/tailwindcss">
+
+        @layer base{ 
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap');
+            body{        
+                font-family: 'Lato', sans-serif;
+            }  
+        }
+   
+    </style>
+
+    <title>Broker Network </title>
+
+</head>
+
+<body class="bg-light">
+
+
+    <!--======== Header Area Start =========-->
+    <header class="header bg-themeColor w-full pl-[50px] pr-6 relative flex items-center z-10">
+        <div class="header-logo max-w-[154px] flex-shrink-0 mr-3"><a href=""><img src="assets/img/logos/logo.png"
+                    alt=""></a></div>
+        <div class="header-main w-full flex items-center justify-center">
+            <nav class="header-nav">
+                <ul class="flex items-center justify-center space-x-1">
+                    <li><a href=""
+                            class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all">Owner’s
+                            supply</a></li>
+                    <li><a href=""
+                            class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all">Resale/Rental</a>
+                    </li>
+                    <li><a href=""
+                            class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all">Add
+                            building</a></li>
+                    <li><a href=""
+                            class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all">Stories</a>
+                    </li>
+                    <li><a href=""
+                            class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-1 hover:after:opacity-100 after:transition-all ">Home
+                            Loans</a></li>
+                    <li><a href=""
+                            class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all">Commercial</a>
+                    </li>
+                    <li><a href=""
+                            class="text-white text-sm transition relative inline-block py-5 px-4 leading-tight font-inter after:absolute after:w-full after:h-[5px] after:bg-white after:content-[''] after:left-0 after:bottom-0 after:opacity-0 hover:after:opacity-100 after:transition-all">Chat</a>
+                    </li>
+                    <li>
+                        <a href=""
+                            class="text-white text-sm transition relative inline-block py-2 px-2 leading-tight font-inter  "><img
+                                src="assets/img/icons/dots.png" alt=""></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-profile flex items-center  space-x-3 py-2.5 pl-8">
+                <div class="relative flex-shrink-0">
+                    <img src="assets/img/thumbs/profile-thumb.png"
+                        class=" sm:w-8 sm:h-8 h-9 w-9 lg:h-[38px] lg:w-[38px] rounded-full object-cover" alt="">
+                    <span
+                        class="absolute  border-2 border-themeColor rounded-full w-3 h-3 bottom-0.5 right-0 bg-themeColor2"></span>
+                </div>
+                <div class=" flex-col space-y-[6px]   max-w-[158px] hidden lg:flex">
+                    <h6 class="text-sm font-bold text-white leading-none ">Arun Pattnaik</h6>
+                    <span class="text-[13px] opacity-70 text-white block leading-none ">Admin</span>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!--======== Header Area End =========-->
+
+
+    <!--======== Main Area Start =========-->
+    <main class="main pl-[270px] pt-5 lg:pt-8 pr-4 pb-8">
+
+
+        <!--======== Sidebar Area Start =========-->
+        <aside
+            class="sidebar w-[255px] bg-themeColor pt-16 pb-5 overflow-y-auto max-h-screen fixed top-0 left-0 h-screen">
+            <nav class="sidebar-nav border-t border-[#ffffff2c] pt-10">
+                <ul>
+                    <li><a href=""
+                            class="pl-8 pr-4 py-2.5 bg-[#bfc7d11c] text-white border-l-4 border-white flex items-center justify-between mb-0.5"><span
+                                class="flex items-center"><span
+                                    class="flex-shrink-0 mr-3 inline-block max-w-[18px]"><img class="w-full block"
+                                        src="assets/img/icons/book.png" alt=""></span>Leads</span> <span
+                                class="nav-link-badge   leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">74</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5  text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm pb-1">
+                            Approved <span
+                                class="nav-link-badge  relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition  text-sm leading-tight">
+                            Documents collected <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm">
+                            Verification <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm">
+                            Sanction letter <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm">
+                            Disbursements <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm">
+                            Approved <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm">
+                            Documents collected <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm">
+                            Verification <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm">
+                            Sanction letter <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                    <li><a href=""
+                            class="pl-[74px] pr-4 py-2.5 pb-1 text-[#ffffffb5] flex items-center justify-between hover:text-white transition leading-tight text-sm">
+                            Disbursements <span
+                                class="nav-link-badge relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold    text-white rounded-full bg-[#6161FF]">5</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <!--======== Sidebar Area End =========-->
+
+
+        <!--======== Content Area Start =========-->
+        <section class="content-area">
+            <div class="container max-w-full">
+                <div class="flex items-center justify-between pb-2">
+                    <div class="bg-white py-1.5 px-1.5 rounded-md flex items-center space-x-0.5 mb-3">
+                        <a href=""
+                            class="text-sm text-dark py-2 px-5 transition-all min-w-[100px] rounded-md text-center inline-flex justify-center items-center leading-tight bg-themeColor text-white">Active</a>
+                        <a href=""
+                            class="text-sm text-dark py-2 px-5 transition-all min-w-[100px] rounded-md text-center inline-flex justify-center items-center leading-tight  hover:bg-themeColor hover:text-white">New
+                            <span
+                                class="nav-link-badge  relative top-[1px] leading-none h-[18px] w-[22px] text-[10px] text-center flex items-center justify-center font-semibold ml-1 text-white rounded-full bg-[#6161FF]">5</span></a>
+                        <a href=""
+                            class="text-sm text-dark py-2 px-5 transition-all min-w-[100px] rounded-md text-center inline-flex justify-center items-center leading-tight hover:bg-themeColor hover:text-white">Closed</a>
+                    </div>
+                    <div class="relative w-[200px] mx-auto md:mr-0 md:ml-auto mt-2">
+                        <div class="input-icon absolute left-2.5 top-[11px] leading-none text-textColor"><i
+                                class="far fa-clock"></i>
+                        </div>
+                        <select id="time" name="time"
+                            class="w-full border border-borderColor appearance-none px-5 h-9 rounded-md bg-white cursor-pointer text-sm text-dark leading-tight pl-8">
+                            <option selected>All time</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select> 
+                        <div class="input-icon absolute right-2.5 top-[10px]"><img src="assets/img/icons/up-down.svg"
+                                alt=""></div>
+                    </div>
+                </div>
+                <div
+                    class="data-box bg-white rounded-md shadow-[0 0 2px 0 rgba(51, 65, 80, 0.03), 0 2px 2px 0 rgba(51, 65, 80, 0.03)]">
+                    <div class="py-4 px-5 border-b border-[#E1E8EE] flex items-center justify-between">
+                        <h6 class="text-dark font-bold text-base">Today’s leads (74)</h6>
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <div class="input-icon absolute left-2.5 top-[11px] leading-none text-textColor"><i
+                                        class="far fa-search"></i>
+                                </div>
+                                <input type="text"
+                                    class="w-[150px] h-9 border border-borderColor rounded-md text-sm text-dark px-3 pl-8 outline-none font-normal"
+                                    placeholder="Search">
+                            </div>
+                            <button
+                                class="border border-borderColor h-9 px-1.5 text-textColor transition-all rounded-md ml-3"><img
+                                    class="max-w-[24px]" src="assets/img/icons/filter.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="py-1 px-3">
+                        <div class="flow-root">
+                            <div class=" overflow-x-auto ">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-2 lg:px-2">
+                                    <div class="relative">
+                                        <!-- Selected row actions, only show when rows are selected. -->
+                                        <!-- <div class="absolute top-0 left-14 flex h-12 items-center space-x-3 bg-white sm:left-12"> -->
+                                        <!--   <button type="button" class="inline-flex items-center rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white">Bulk edit</button> -->
+                                        <!--   <button type="button" class="inline-flex items-center rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white">Delete all</button> -->
+                                        <!-- </div> -->
+
+                                        <table
+                                            class="min-w-full table-fixed divide-y divide-gray-300 border-separate border-spacing-y-3">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="relative px-7 sm:w-12 sm:px-6">
+                                                        <input type="checkbox"
+                                                            class="absolute left-4 top-1/2 -mt-2 h-4 w-4 opacity-0 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="min-w-[65px] py-2 pr-3 text-left text-xs font-medium uppercase text-textColor pl-1">
+                                                        Lead</th>
+                                                    <th scope="col"
+                                                        class="min-w-[65px] py-2 pr-3 text-left text-xs font-medium uppercase text-textColor pl-1">
+                                                        Loan Reqd</th>
+                                                    <th scope="col"
+                                                        class="min-w-[65px] py-2 pr-3 text-left text-xs font-medium uppercase text-textColor pl-1">
+                                                        Remarks</th>
+                                                    <th scope="col"
+                                                        class="min-w-[65px] py-2 pr-3 text-left text-xs font-medium uppercase text-textColor pl-1">
+                                                        Call scheduled</th>
+                                                    <th scope="col"
+                                                        class="min-w-[65px] py-2 pr-3 text-left text-xs font-medium uppercase text-textColor pl-1">
+                                                        Emp type</th>
+                                                    <th scope="col"
+                                                        class="min-w-[65px] py-2 pr-3 text-left text-xs font-medium uppercase text-textColor pl-1">
+                                                        Broker</th>
+                                                    <th scope="col"
+                                                        class="min-w-[65px] py-2 pr-3 text-left text-xs font-medium uppercase text-textColor pl-1">
+                                                        Contact</th> 
+                                                    <th scope="col"
+                                                        class="min-w-[65px] py-2 pr-3 text-left text-xs font-medium uppercase text-textColor pl-1"
+                                                        colspan="2">
+                                                        Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-gray-200 bg-white">
+                                                <tr class=" rounded-md overflow-hidden ">
+                                                    <td
+                                                        class="relative px-7 sm:w-12 sm:px-6 border border-[#E2E9EF] border-r-0 rounded-tl-md rounded-bl-md">
+
+                                                        <input type="checkbox"
+                                                            class="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    </td>
+                                                    <td
+                                                        class="py-4 pr-3 text-sm font-medium  pl-1 border border-[#E2E9EF] min-w-[150px] border-l-0 border-r-0">
+                                                        <div class="header-profile flex items-center  space-x-3  ">
+                                                            <div class="relative flex-shrink-0">
+                                                                <img src="assets/img/thumbs/profile-image.png"
+                                                                    class=" sm:w-8 sm:h-8 h-9 w-9 lg:h-[38px] lg:w-[38px] rounded-mf object-cover"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class=" flex-col space-y-[6px]   max-w-[158px] flex">
+                                                                <h6
+                                                                    class="text-sm font-normal pb-.5 text-dark leading-none ">
+                                                                    Jackson Dukhi </h6>
+                                                                <span
+                                                                    class="text-[12px] opacity-70 text-textColor block leading-none ">Powai,
+                                                                    Mumbai</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td
+                                                        class=" px-3 py-4 pl-1 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0  min-w-[90px]" colspan="2">
+                                                        45 Lakhs</td>
+                                                  
+                                                    <td
+                                                        class=" px-3 py-4 pl-1 text-sm text-red-500  border border-[#E2E9EF] border-l-0 border-r-0  min-w-[90px]" colspan="1">
+                                                        In 3 minutes</td>
+                                                        <td
+                                                        class=" px-3 py-4 pl-1 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0  min-w-[90px]" colspan="1">
+                                                        Salaried</td>
+                                                    <td
+                                                        class=" px-3 py-4 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0 pl-1  min-w-[80px]">
+                                                        Prashant <span class="relative pl-1 leading-none"><i
+                                                                class="fas fa-ellipsis-h"></i></span>
+                                                    </td>
+                                                    <td class=" px-2 py-4 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0 pl-1  min-w-[55px]"
+                                                        colspan="1">
+                                                        <button class="bg-transparent border-0 max-w-[36px] p-0"><img
+                                                                src="assets/img/icons/call.png" class="block max-w-full"
+                                                                alt=""></button>
+                                                    </td>
+                                                    <td
+                                                        class=" px-2 py-4 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0 pl-1  min-w-[90px]">
+                                                        <div
+                                                            class="bg-[#E7E9FF] rounded-md py-1 px-2 text-xs text-textColor inline-flex pr-4">
+                                                            Documents pending
+                                                        </div>
+
+                                                    </td> 
+                                                    <td
+                                                        class=" px-3 py-4 text-sm text-textColor min-w-[90px]  border border-[#E2E9EF] border-l-0 rounded-tr-md rounded-br-md pl-1">
+                                                        <div class="flex items-center justify-end space-x-3 pr-4">
+                                                            <button
+                                                                class="bg-transparent border-0 max-w-[36px] p-0 star-icon flex-shrink-0"><img
+                                                                    src="assets/img/icons/star.png"
+                                                                    class="block max-w-full" alt=""></button>
+                                                            <button
+                                                                class="bg-transparent border-0 max-w-[36px] p-0 text-lg pl-2"><i
+                                                                    class="fas fa-ellipsis-h"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <tr class=" rounded-md overflow-hidden ">
+                                                    <td
+                                                        class="relative px-7 sm:w-12 sm:px-6 border border-[#E2E9EF] border-r-0 rounded-tl-md rounded-bl-md">
+
+                                                        <input type="checkbox"
+                                                            class="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                                    </td>
+                                                    <td
+                                                        class="py-4 pr-3 text-sm font-medium  pl-1 border border-[#E2E9EF] min-w-[150px] border-l-0 border-r-0">
+                                                        <div class="header-profile flex items-center  space-x-3  ">
+                                                            <div class="relative flex-shrink-0">
+                                                                <img src="assets/img/thumbs/profile-image.png"
+                                                                    class=" sm:w-8 sm:h-8 h-9 w-9 lg:h-[38px] lg:w-[38px] rounded-mf object-cover"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class=" flex-col space-y-[6px]   max-w-[158px] flex">
+                                                                <h6
+                                                                    class="text-sm font-normal pb-.5 text-dark leading-none ">
+                                                                    Arpit Gupta </h6>
+                                                                <span
+                                                                    class="text-[12px] opacity-70 text-textColor block leading-none ">Powai,
+                                                                    Wakad, Pune</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td
+                                                        class=" px-3 py-4 pl-1 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0  min-w-[90px]" colspan="1">
+                                                        2.3 Cr</td> 
+                                                    <td
+                                                        class=" px-3 py-4 pl-1 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0  min-w-[90px]" colspan="1">
+                                                        <img src="assets/img/icons/remark.png" class="max-w-[20px] inline-block" alt=""></td> 
+                                                    <td
+                                                        class=" px-3 py-4 pl-1 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0  min-w-[90px]" colspan="1">
+                                                        6:30 pm</td>
+                                                        <td
+                                                        class=" px-3 py-4 pl-1 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0  min-w-[90px]" colspan="1">
+                                                        Self-employed</td>
+                                                    <td
+                                                        class=" px-3 py-4 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0 pl-1  min-w-[80px]">
+                                                        Bharat Gupta <span class="relative pl-1 leading-none"><i
+                                                                class="fas fa-ellipsis-h"></i></span>
+                                                    </td>
+                                                    <td class=" px-2 py-4 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0 pl-1  min-w-[55px]"
+                                                        colspan="1">
+                                                        <button class="bg-transparent border-0 max-w-[36px] p-0"><img
+                                                                src="assets/img/icons/call.png" class="block max-w-full"
+                                                                alt=""></button>
+                                                    </td>
+                                                    <td
+                                                        class=" px-2 py-4 text-sm text-textColor  border border-[#E2E9EF] border-l-0 border-r-0 pl-1  min-w-[90px]">
+                                                        <div
+                                                            class="bg-[#E7E9FF] rounded-md py-1 px-2 text-xs text-textColor inline-flex pr-4">
+                                                            Sanction letter received
+                                                        </div>
+
+                                                    </td> 
+                                                    <td
+                                                        class=" px-3 py-4 text-sm text-textColor min-w-[90px]  border border-[#E2E9EF] border-l-0 rounded-tr-md rounded-br-md pl-1">
+                                                        <div class="flex items-center justify-end space-x-3 pr-4">
+                                                            <button
+                                                                class="bg-transparent border-0 max-w-[36px] p-0 star-icon flex-shrink-0"><img
+                                                                    src="assets/img/icons/star.png"
+                                                                    class="block max-w-full" alt=""></button>
+                                                            <button
+                                                                class="bg-transparent border-0 max-w-[36px] p-0 text-lg pl-2"><i
+                                                                    class="fas fa-ellipsis-h"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+                                                <!-- More people... -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!--======== Content Area End =========-->
+
+
+
+    </main>
+    <!--======== Main Area End =========-->
+
+
+
+
+</body>
+
+</html>
